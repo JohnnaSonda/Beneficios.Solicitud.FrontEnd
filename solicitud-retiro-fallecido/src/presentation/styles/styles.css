@@ -83,3 +83,21 @@
 .sonda_alerts .ant-alert-message {
 	padding-top: 4px;
 }
+
+.affiliate-data__documentation-received,
+.affiliate-data__applicant,
+.affiliate-data__mandatory,
+.update-data__card {
+	.ant-spin-container {
+		display: flex;
+		justify-content: end;
+		margin: 8px 0 0;
+	}
+}
+
+.affiliate-data__checkbox,
+.update-data__checkbox {
+	.ant-radio-group-outline {
+		display: flex;
+	}
+}

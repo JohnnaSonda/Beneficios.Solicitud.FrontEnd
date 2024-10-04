@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Paragraph } from "sonda.core.controls/typography";
 import {
 	Col,
+	Divider,
+	Icon,
 	Row,
 	SummaryTable,
 	SummaryTableColumnProps,
@@ -34,7 +36,6 @@ const BenefitsView = ({
 	) => void;
 	setTabDisabled: (prevState: any) => void;
 }) => {
-
 	const columnsAffiliateBalance: DataTableColumnProps[] = [
 		{
 			align: "center",
@@ -90,40 +91,40 @@ const BenefitsView = ({
 		},
 	];
 
-	// const columnsRejectionFcs: DataTableColumnProps[] = [
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "indRequisito",
-	// 		width: 70,
-	// 		title: "Estado",
-	// 		render: (value) => {
-	// 			if (value === "S")
-	// 				return (
-	// 					<Icon className="check-circle" icon={["fas", "check-circle"]} onClick={() => {}} />
-	// 				);
-	// 			return (
-	// 				<Icon className="icon-exclamation" icon={["fas", "xmark-circle"]} onClick={() => {}} />
-	// 			);
-	// 		},
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "descRequisito",
-	// 		title: "Requisito",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		width: 200,
-	// 		dataIndex: "cantReal",
-	// 		title: "Tiene",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		width: 200,
-	// 		dataIndex: "cantRequisito",
-	// 		title: "Necesita",
-	// 	},
-	// ];
+	const columnsRejectionFcs: DataTableColumnProps[] = [
+		{
+			align: "center",
+			dataIndex: "indRequisito",
+			width: 70,
+			title: "Estado",
+			render: (value) => {
+				if (value === "S")
+					return (
+						<Icon className="check-circle" icon={["fas", "check-circle"]} onClick={() => {}} />
+					);
+				return (
+					<Icon className="icon-exclamation" icon={["fas", "xmark-circle"]} onClick={() => {}} />
+				);
+			},
+		},
+		{
+			align: "center",
+			dataIndex: "descRequisito",
+			title: "Requisito",
+		},
+		{
+			align: "center",
+			width: 200,
+			dataIndex: "cantReal",
+			title: "Tiene",
+		},
+		{
+			align: "center",
+			width: 200,
+			dataIndex: "cantRequisito",
+			title: "Necesita",
+		},
+	];
 
 	const handleSimularSolicitud = async () => {
 		const usu = await GetUser();
@@ -166,9 +167,7 @@ const BenefitsView = ({
 
 	return (
 		<>
-			<div>
 			<Row gutter={[16, 16]}>
-				
 				<Col span={24} className="min-h-full">
 					<DataTable
 						title="Saldos Afiliado"
@@ -178,6 +177,7 @@ const BenefitsView = ({
 						persistGrid={false}
 					/>
 				</Col>
+
 				<Col span={24} className="min-h-full">
 					<SummaryTable
 						title="Cuadro de Pago"
@@ -196,9 +196,9 @@ const BenefitsView = ({
 					</Paragraph>
 				</Col>
 			</Row>
-		</div>
-		
-		{/* <Card>
+
+			<Divider />
+
 			<div>
 				<Row gutter={[16, 16]}>
 					<Col span={24}>
@@ -212,7 +212,7 @@ const BenefitsView = ({
 					</Col>
 				</Row>
 			</div>
-		</Card> */}
+
 			<Row gutter={[16, 16]}>
 				<Col span={24} className="mt-4 flex justify-end">
 					<Button

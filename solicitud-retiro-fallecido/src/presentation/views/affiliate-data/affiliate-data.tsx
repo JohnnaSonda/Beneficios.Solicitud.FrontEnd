@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
-	ButtonProps,
 	Col,
 	H3,
 	Row,
 	RutField,
 	TextField,
 	DatePickerField,
-	ComboBoxField,
+	//ComboBoxField,
 	Divider,
 	DataTableColumnProps,
 	DataTable,
@@ -15,9 +14,11 @@ import {
 	Button,
 	H2,
 	HeaderControls,
+	ButtonProps,
 	CheckboxField,
 	UploadField,
 	GroupRadioButtonField,
+	ComboBoxField,
 } from "sonda.core.controls";
 import { IDataConsulting, ITabAfiliado } from "../../types/affiliate-data";
 import moment from "moment-timezone";
@@ -34,23 +35,23 @@ const AffiliateData = ({
 	//entidadPrevisional,
 	fechaNacimiento,
 	//tipoPension,
-	//fechaPension,
+	fechaPension,
 	//previsionOpciones,
 	//opcionesPension,
 	//nuevaPrevision,
 	//updateConsolidadaData,
-	//setTabDisabled,
+	setTabDisabled,
 	//consolidada,
 	//setConsolidada,
 	nextTab,
 }: ITabAfiliado) => {
 	const [tableReject, setTableReject] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(false);
-	// const [verifyData, setVerifyData] = useState({
-	// 	datePension: false,
-	// 	typePension: false,
-	// 	pensionInstitutionDato: false,
-	// });
+	const [verifyData, setVerifyData] = useState({
+		datePension: false,
+		typePension: false,
+		pensionInstitutionDato: false,
+	});
 	// const [errorInput, setErrorInput] = useState({
 	// 	pensionDateInput: false,
 	// 	prevNac: false,
@@ -194,121 +195,25 @@ const AffiliateData = ({
 		},
 	];
 
-	// const columnsManualEntry: DataTableColumnProps[] = [
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "beneficiaryType",
-	// 		dataType: "string",
-	// 		title: "Tipo de beneficiario",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "rut",
-	// 		dataType: "string",
-	// 		title: "Rut",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "names",
-	// 		dataType: "string",
-	// 		title: "Nombres",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "lastName",
-	// 		dataType: "string",
-	// 		title: "Apellido Paterno",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "motherLastName",
-	// 		dataType: "string",
-	// 		title: "Apellido Materno",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		customFormat: "DD/MM/YYYY",
-	// 		dataIndex: "birthDate",
-	// 		dataType: "date",
-	// 		title: "Fecha de nacimiento",
-	// 	},
-	// ];
+	const inputsDateDeath: InputsControls[] = [
+		[
+			{
+				inputType: "datepickerfield",
+				name: "dateDeath",
+				defaultValue: "",
+				label: "Fecha de defunción",
+				placeholder: "DD/MM/AAAA",
+			},
+		],
+	];
 
-	// const dataManualEntry: any[] = [
-	// 	{
-	// 		rut: "201665272",
-	// 		beneficiaryType: "Prelación",
-	// 		names: "Steven",
-	// 		lastName: "Faust",
-	// 		motherLastName: "Jonhson",
-	// 		birthDate: new Date(),
-	// 	},
-	// ];
-	
-	// const columnsBeneficiary: DataTableColumnProps[] = [
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "beneficiaryType",
-	// 		dataType: "string",
-	// 		title: "Tipo de beneficiario",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "rut",
-	// 		dataType: "string",
-	// 		title: "Rut",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "names",
-	// 		dataType: "string",
-	// 		title: "Nombres",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "lastName",
-	// 		dataType: "string",
-	// 		title: "Apellido Paterno",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "motherLastName",
-	// 		dataType: "string",
-	// 		title: "Apellido Materno",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		customFormat: "DD/MM/YYYY",
-	// 		dataIndex: "birthDate",
-	// 		dataType: "date",
-	// 		title: "Fecha de nacimiento",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "percentage",
-	// 		dataType: "number",
-	// 		title: "Porcentaje",
-	// 	},
-	// 	{
-	// 		align: "center",
-	// 		dataIndex: "collection",
-	// 		dataType: "string",
-	// 		title: "Cobro",
-	// 	},
-	// ];
-
-	// const dataBeneficiary: any[] = [
-	// 	{
-	// 		rut: "201665272",
-	// 		beneficiaryType: "Declarado en vida",
-	// 		names: "Steven",
-	// 		lastName: "Faust",
-	// 		motherLastName: "Jonhson",
-	// 		birthDate: new Date(),
-	// 		percentage: 100,
-	// 		collection: "No",
-	// 	},
-	// ];
+	const buttonDateDeath: ButtonProps[] = [
+		{
+			label: "Validar fecha",
+			onClick: () => console.log("buscando"),
+			id: "",
+		},
+	];
 
 	const columnsMandate: DataTableColumnProps[] = [
 		{
@@ -346,51 +251,30 @@ const AffiliateData = ({
 		},
 	];
 
-	const inputsDateDeath: InputsControls[] = [
-		[
-			{
-				inputType: "datepickerfield",
-				name: "dateDeath",
-				defaultValue: "",
-				label: "Fecha de defunción",
-				placeholder: "DD/MM/AAAA",
-			},
-		],
-	];
-
-	const buttonDateDeath: ButtonProps[] = [
-		{
-			label: "Validar fecha",
-			onClick: () => console.log("buscando"),
-			id: "",
-		},
-	];
+	const handleChangeTable = (_i: number) => {
+	};
 
 	useEffect(() => {
 		handleRejectedApplications();
 	}, []);
 
-	// useEffect(() => {
-	// 	if (fechaPension) {
-	// 		setVerifyData((prevState) => ({
-	// 			...prevState,
-	// 			datePension: true,
-	// 		}));
-	// 	}
-	// }, [fechaPension]);
+	useEffect(() => {
+		if (fechaPension) {
+			setVerifyData((prevState) => ({
+				...prevState,
+				datePension: true,
+			}));
+		}
+	}, [fechaPension]);
 
-	// useEffect(() => {
-	// 	if (verifyData.datePension && verifyData.pensionInstitutionDato && verifyData.typePension) {
-	// 		setTabDisabled((prevState: any) => ({
-	// 			...prevState,
-	// 			[1]: { ...prevState[1], disabled: false },
-	// 		}));
-	// 	}
-	// }, [verifyData]);
-
-	function handleChangeTable(_arg0: number) {
-		throw new Error("Function not implemented.");
-	}
+	useEffect(() => {
+		if (verifyData.datePension && verifyData.pensionInstitutionDato && verifyData.typePension) {
+			setTabDisabled((prevState: any) => ({
+				...prevState,
+				[1]: { ...prevState[1], disabled: false },
+			}));
+		}
+	}, [verifyData]);
 
 	return (
 		<SpinLoader size="normal" spinning={loading}>
@@ -403,7 +287,7 @@ const AffiliateData = ({
 						id=""
 						buttonType="Siguiente"
 						label="Siguiente"
-						onClick={() => nextTab("2", "benefits")}
+						onClick={() => nextTab("1", "benefits")}
 					/>
 				</Col>
 				<Col span={6}>
@@ -430,74 +314,7 @@ const AffiliateData = ({
 					<TextField disabled value={edadUsuario.toString()} label="Edad" />
 				</Col>
 			</Row>
-			<br></br>
-			{/* <Divider />
-			<Row gutter={[16, 16]}>
-				<Col span={24}>
-					<H3>Antecedentes de Pensión</H3>
-				</Col>
-				<Col span={8}>
-					<ComboBoxField
-						label="Tipo de Pensión"
-						value={tipoPension}
-						placeholder="Seleccione"
-						variant={errorInput.typeOfPension ? "error" : "normal"}
-						options={{
-							data: opcionesPension,
-							textField: "descripcion",
-							valueField: "tipoPension",
-						}}
-						onChange={(value) => {
-							handleTipoPensionChange(value);
-							updateConsolidadaData("tipoPension", value);
-						}}
-					/>
-					{errorInput.typeOfPension && (
-						<NotificationInputError message="El Tipo de Pension es Obligatorio" />
-					)}
-				</Col>
-				<Col span={8}>
-					<DatePickerField
-						value={pensionDate}
-						label="Fecha de Pensión"
-						format="DDMMAAAA"
-						onChange={(date, dateString) => {
-							if (dateString.includes(" ")) return;
-							handleDatePensionChange(date, dateString);
-						}}
-						placeholder="Fecha de pensión"
-						variant={
-							errorInput.pensionDateInput ? "error" : errorInput.prevNac ? "error" : "normal"
-						}
-					/>
-					{errorInput.pensionDateInput && (
-						<NotificationInputError message="La fecha de Pensión no puede ser mayor a la fecha de Solicitud" />
-					)}
-					{errorInput.prevNac && (
-						<NotificationInputError message="La fecha de Pensión no puede ser antes de la fecha de nacimiento" />
-					)}
-				</Col>
-				<Col span={8}>
-					<ComboBoxField
-						value={entidadPrevisional}
-						label="Entidad Previsional Pensión"
-						placeholder="Seleccione"
-						options={{
-							data: previsionOpciones,
-							textField: "descripcion",
-							valueField: "codInstPrevision",
-						}}
-						onChange={(value) => {
-							handleEntidadPrevisionalChange(value);
-							updateConsolidadaData("entidadPrevisionalPension", value);
-						}}
-						variant={errorInput.pensionInstitution ? "error" : "normal"}
-					/>
-					{errorInput.pensionInstitution && (
-						<NotificationInputError message="La Entidad Previsional es Obligatoria" />
-					)}
-				</Col>
-			</Row> */}
+			<Divider />
 			{tableReject && (
 				<>
 					<Divider />
@@ -510,27 +327,14 @@ const AffiliateData = ({
 					/>
 				</>
 			)}
-			{/* <Row gutter={[16, 16]}>
-				<Col span={24} className="mt-4 flex justify-end">
-					<Button
-						id=""
-						buttonType="Siguiente"
-						label="Siguiente"
-						onClick={() => nextTab("1", "benefits", setErrorInput)}
-					/>
-				</Col>
-			</Row> */}
-			<Divider />
 			<div>
 				<H2>Validar fecha de defunción</H2>
-				<HeaderControls inputs={inputsDateDeath} buttonControls={buttonDateDeath} />
+					<HeaderControls inputs={inputsDateDeath} buttonControls={buttonDateDeath} />
 			</div>
-			<br />
-
 			<Divider />
-					<H2>Documentación recibida</H2>
-					<div className="affiliate-data__documentation-received">
-						<Row gutter={[16, 24]}>
+			<H2>Documentación recibida</H2>
+			<div className="affiliate-data__documentation-received">
+				<Row gutter={[16, 24]}>
 							<Col span={6}>
 								<CheckboxField label="Acuerdo unión civil" onChange={function noRefCheck() {}} />
 								<CheckboxField
@@ -568,30 +372,10 @@ const AffiliateData = ({
 							</Col>
 						</Row>
 						<Button buttonType="Actualizar" id="Actualizar" label="Actualizar" />
-					</div>
-				 <br></br>
-				<Divider />
-					{/*<H2>Beneficiarios</H2>
-					<DataTable
-						title="Ingreso manual"
-						columns={columnsManualEntry}
-						dataSource={dataManualEntry}
-						pagination={false}
-					/>
-					<DataTable
-						checkedField="rut"
-						columns={columnsBeneficiary}
-						dataSource={dataBeneficiary}
-						onChangeRowSelection={function noRefCheck(i) {
-							handleChangeTable(+i);
-						}}
-						rowSelection="radio"
-						title="Beneficiario solicitante"
-						pagination={false}
-					/>
-					<Divider />				 */}
-
-					<H2>Solicitante</H2>
+			</div>
+			<Divider />
+			<div className="affiliate-data__applicant">
+			<H2>Solicitante</H2>
 					<div className="affiliate-data__checkbox">
 						<GroupRadioButtonField
 							defaultValue="Apple"
@@ -618,7 +402,6 @@ const AffiliateData = ({
 							}}
 						/>
 					</div>
-					<br></br>
 					<Row gutter={[16, 24]}>
 						<Col span={6}>
 							<TextField
@@ -786,11 +569,10 @@ const AffiliateData = ({
 						</Row>
 					</div>
 					<Button buttonType="Actualizar" id="Actualizar" label="Actualizar" />
-				
-				<br></br>
-
-				<Divider />
-					<H2>Mandato</H2>
+			</div>
+			<Divider />
+			<div className="affiliate-data__mandatory">
+			<H2>Mandato</H2>
 					<DataTable
 						checkedField="rut"
 						columns={columnsMandate}
@@ -803,7 +585,7 @@ const AffiliateData = ({
 						pagination={false}
 					/>
 					<Button buttonType="Despachar" id="mandatory" label="Ir a mandatos" />
-				
+			</div>
 		</SpinLoader>
 	);
 };

@@ -80,63 +80,63 @@ const Home: React.FC<IProps> = (props: any): React.ReactElement => {
 	const nextTab = (
 		tab: string,
 		validate: "benefits" | "updateData" | "summary",
-		setError?: (value: any) => void,
+		//setError?: (value: any) => void,
 	) => {
 		/**Revisión para avanzar al tab Beneficios */
 		if (validate === "benefits") {
 			/**Si no ha seleccionado fecha de pensión, se entrega mensaje. */
-			if (!consolidado?.fechaPension) {
-				ToastNotification({
-					description: "Complete la fecha de pensión para continuar",
-					duration: 10,
-					key: "",
-					message: "Seleccione una fecha de pensión",
-					type: "error",
-				});
-				return;
-			}
+			// if (!consolidado?.fechaPension) {
+			// 	ToastNotification({
+			// 		description: "Complete la fecha de pensión para continuar",
+			// 		duration: 10,
+			// 		key: "",
+			// 		message: "Seleccione una fecha de pensión",
+			// 		type: "error",
+			// 	});
+			// 	return;
+			// }
 
 			/**Si no ha seleccionado tipo de pensión, se entrega mensaje. */
-			if (!consolidado?.tipoPension) {
-				ToastNotification({
-					description: "Seleccione el tipo de pensión para continuar.",
-					duration: 10,
-					key: "",
-					message: "Seleccione el tipo de pensión",
-					type: "error",
-				});
-				if (setError) setError((prevState: any) => ({ ...prevState, typeOfPension: true }));
-				return;
-			} else {
-				if (setError) setError((prevState: any) => ({ ...prevState, typeOfPension: false }));
-			}
+			// if (!consolidado?.tipoPension) {
+			// 	ToastNotification({
+			// 		description: "Seleccione el tipo de pensión para continuar.",
+			// 		duration: 10,
+			// 		key: "",
+			// 		message: "Seleccione el tipo de pensión",
+			// 		type: "error",
+			// 	});
+			// 	if (setError) setError((prevState: any) => ({ ...prevState, typeOfPension: true }));
+			// 	return;
+			// } else {
+			// 	if (setError) setError((prevState: any) => ({ ...prevState, typeOfPension: false }));
+			// }
 
 			/**Si no ha seleccionado entidad previsional, se entrega mensaje. */
-			if (!consolidado?.entidadPrevisionalPension) {
-				ToastNotification({
-					description: "Seleccione la entidad previsional pensión para continuar.",
-					duration: 10,
-					key: "",
-					message: "Seleccione la entidad previsional pensión",
-					type: "error",
-				});
-				if (setError) setError((prevState: any) => ({ ...prevState, pensionInstitution: true }));
-				return;
-			} else {
-				if (setError) setError((prevState: any) => ({ ...prevState, pensionInstitution: false }));
-			}
+			// if (!consolidado?.entidadPrevisionalPension) {
+			// 	ToastNotification({
+			// 		description: "Seleccione la entidad previsional pensión para continuar.",
+			// 		duration: 10,
+			// 		key: "",
+			// 		message: "Seleccione la entidad previsional pensión",
+			// 		type: "error",
+			// 	});
+			// 	if (setError) setError((prevState: any) => ({ ...prevState, pensionInstitution: true }));
+			// 	return;
+			// } else {
+			// 	if (setError) setError((prevState: any) => ({ ...prevState, pensionInstitution: false }));
+			// }
 
 			/**Si la fecha cuénta con algún error controlado, se entrega mensaje. */
-			if (consolidado?.fechaError) {
-				ToastNotification({
-					description: "Existe un error con la fecha de pensión.",
-					duration: 10,
-					key: "",
-					message: "Revise la fecha de pensión",
-					type: "error",
-				});
-				return;
-			}
+			// if (consolidado?.fechaError) {
+			// 	ToastNotification({
+			// 		description: "Existe un error con la fecha de pensión.",
+			// 		duration: 10,
+			// 		key: "",
+			// 		message: "Revise la fecha de pensión",
+			// 		type: "error",
+			// 	});
+			// 	return;
+			// }
 
 			/**Si las validaciones han salido correctas, se actualiza la tab. */
 			setTabActive(tab);
@@ -621,7 +621,7 @@ const Home: React.FC<IProps> = (props: any): React.ReactElement => {
 					<AppProvider globalEventDistributor={props.globalEventDistributor} idModule="">
 						<LocaleProvider i18nextInstance={i18nextInstance} namespace="namespace.test-simulacion">
 							<PageContent>
-								<TitleSection title="Solicitud Beneficio Fallecido" />
+								<TitleSection title="Solicitud beneficio fallecido" />
 								<Card>
 									<SpinLoader size="normal" spinning={loading}>
 										{tabActive === "0" && (

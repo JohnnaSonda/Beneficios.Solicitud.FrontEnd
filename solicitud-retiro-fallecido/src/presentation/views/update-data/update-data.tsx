@@ -15,8 +15,6 @@ import {
 	Icon,
 	ToastNotification,
 	CheckboxField,
-	Card,
-	Divider,
 } from "sonda.core.controls";
 import GetUser from "../../hooks/getUsers";
 import { BeneficiaryHandler } from "../../components/update-data-beneficiary-handler/BeneficiaryHandler";
@@ -1144,8 +1142,6 @@ const UpdateDataView = ({
 					</Row>
 				)}
 			</Modal>
-
-			<Card>
 			<Row gutter={[16, 16]}>
 				<Col span={24}>
 					<H3>Datos del Pago</H3>
@@ -1223,7 +1219,6 @@ const UpdateDataView = ({
 						</div>
 					</Col>
 				)}
-			<Divider />
 
 				<Col span={24}>
 					<DataTable
@@ -1253,7 +1248,6 @@ const UpdateDataView = ({
 						/>
 					</div>
 				</Col>
-				<Divider />
 
 				<Col span={24}>
 					<DataTable
@@ -1293,7 +1287,6 @@ const UpdateDataView = ({
 					/>
 				</Col>
 			</Row>
-			</Card>
 
 			<Row gutter={[16, 16]}>
 				<Col span={24} className="mt-4 flex justify-end">
