@@ -40,6 +40,7 @@ export const appConf = {
 	ApiReclamosNormativos: (window as any).ApiReclamosNormativos,
 	ApiSolicitudCesantia: (window as any).ApiSolicitudCesantia,
 	ApiSolicitudPensionado: (window as any).ApiSolicitudPensionado,
+	ApiPoderes: (window as any).ApiPoderes,
 
 	//API´S JWT
 	ConsultarAntecedentes: "ConsultarAntecedentesValidaciones",
@@ -74,5 +75,10 @@ export const appConf = {
 		ConsultarSolicitud: "ConsultarSolicitud",
 		CrearSolicitud: "CrearSolicitud",
 		SimularSolicitud: "SimularSolicitud",
+	},
+	Poderes: {
+		ConsultarMandatarios: "ConsultarMandatarios",
+		ConsultarMandato: "ConsultarMandato",
+		ConsultarFacultades: "ConsultarFacultades",
 	},
 };
