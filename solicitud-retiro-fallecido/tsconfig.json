@@ -1,0 +1,22 @@
+{
+	"extends": "ts-config-single-spa",
+	"compilerOptions": {
+		"baseUrl": "src",
+		"target": "ES2015",
+		"jsx": "react",
+		"module": "ESNext",
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"useDefineForClassFields": true,
+		"paths": {
+			"*": ["types/*"]
+		}
+	},
+	"include": ["src/**/*", "node_modules/@types", "src/custom.d.ts"],
+	"exclude": ["src/**/*.test*"]
+}

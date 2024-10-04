@@ -1,0 +1,25 @@
+.body {
+	font-family: "TT Norms Medium", sans-serif;
+	font-size: 12px;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+.content h1,
+.content header.page-title h1 {
+	font-family: "TT Norms Medium", sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 8px 0;
+}
+
+#main > .sidebar {
+	padding: 40px 30px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 300px;
+	border-right: 1px solid #eaeaf1;
+	height: 100%;
+	overflow: auto;
+}

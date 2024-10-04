@@ -1,0 +1,33 @@
+/* Alineación horizontal */
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+/* Alineación vertical */
+.text-top {
+	vertical-align: top;
+}
+
+.text-middle {
+	vertical-align: middle;
+}
+
+.text-bottom {
+	vertical-align: bottom;
+}
+
+.text-baseline {
+	vertical-align: baseline;
+}

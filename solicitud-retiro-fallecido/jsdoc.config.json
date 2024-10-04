@@ -1,0 +1,26 @@
+{
+	"plugins": ["node_modules/better-docs/typescript", "node_modules/better-docs/category"],
+	"recurseDepth": 10,
+	"source": {
+		"includePattern": "\\.(jsx|js|ts|tsx)$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"sourceType": "module",
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc", "closure"]
+	},
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"better-docs": {
+			"title": "Usuarios",
+			"name": "Sonda Usuarios",
+			"hideGenerator": true,
+			"css": "../jsdoc.theme.css"
+		}
+	},
+	"opts": {
+		"template": "node_modules/better-docs"
+	}
+}

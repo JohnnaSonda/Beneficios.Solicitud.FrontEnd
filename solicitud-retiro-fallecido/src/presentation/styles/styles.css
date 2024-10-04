@@ -1,0 +1,85 @@
+@import url("./align.css");
+@import url("./border.css");
+@import url("./flex.css");
+@import url("./gap.css");
+@import url("./height.css");
+@import url("./letter-spacing.css");
+@import url("./margins.css");
+@import url("./paddings.css");
+@import url("./text-align.css");
+@import url("./text-wrap.css");
+@import url("./width.css");
+@import url("./text-color.css");
+
+/* global styles */
+.sonda_form-label {
+	margin: 0;
+}
+
+.sonda_data_table .ant-radio-inner::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+.edit-icon:hover {
+	cursor: pointer;
+
+	path {
+		color: #085caf;
+	}
+}
+
+.sonda-summary-table--border table {
+	border: 2px solid #0854a0 !important;
+}
+
+.sonda-summary-table--disabled table {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.table-total--border {
+	border: 2px solid #0854a0 !important;
+
+	&:last-child {
+		border-left: none !important;
+	}
+}
+
+.table-total--disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.sonda-btn--cancel {
+	background-color: red;
+	border: none;
+}
+
+.icon-exclamation {
+	color: red;
+}
+
+.check-circle {
+	color: green;
+}
+
+.error-icon:hover path {
+	cursor: pointer;
+	color: red;
+}
+
+.summary__checkbox > div {
+	display: flex !important;
+	flex-direction: row !important;
+	gap: 16px !important;
+	align-items: center !important;
+}
+
+.sonda_alerts .ant-alert-message {
+	padding-top: 4px;
+}

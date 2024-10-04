@@ -1,0 +1,50 @@
+/* Display flex */
+.flex {
+	display: flex !important;
+}
+
+.inline-flex {
+	display: inline-flex;
+}
+
+/* Dirección flex */
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-row-reverse {
+	flex-direction: row-reverse;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-col-reverse {
+	flex-direction: column-reverse;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+/* Envoltura flex */
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+	flex-wrap: wrap-reverse;
+}
+
+.flex-no-wrap {
+	flex-wrap: nowrap;
+}
+
+.content-between {
+	justify-content: space-between;
+}
+
+.content-center {
+	justify-content: center;
+}

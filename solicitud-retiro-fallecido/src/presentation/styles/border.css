@@ -1,0 +1,41 @@
+.border-solid {
+	border-style: solid !important;
+}
+
+.border-0 {
+	border-width: 0 !important;
+}
+
+.border-1 {
+	border-width: 1px !important;
+}
+
+.border-gray {
+	border-color: #838b93 !important;
+}
+
+.border-l-0 {
+	border-left-width: 0px !important;
+}
+
+.rounded-none {
+	border-radius: 0px !important;
+}
+
+.rounded-lg {
+	border-radius: 0.5rem !important;
+}
+
+.rounded-xl {
+	border-radius: 0.75rem !important;
+}
+
+.rounded-e-none {
+	border-start-end-radius: 0px !important;
+	border-end-end-radius: 0px !important;
+}
+
+.rounded-l-none {
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+}
