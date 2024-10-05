@@ -6,17 +6,35 @@ window.portService = ":85";
 window.portLogin = ":82";
 window.versionSoftware = "3.0.29";
 //API Raiz
-window.ApiPersona = "/apiPersona/api/" + window.versionApi + "/Persona/";
+window.ApiLogin = "/ApiLogin/api/" + window.versionApi + "/Login/";
+window.ApiProceso =
+	"/controladorprocesos/apiControladorProcesos/api/" + window.versionApi + "/Proceso/";
+window.ApiCalendar = "/apiCalendario/api/" + window.versionApi + "/Calendario/";
+window.ApiTablaSuperiorEInferior =
+	"/apiTablaSuperiorEInferior/api/" + window.versionApi + "/TablaSuperiorInferior/";
+window.ApiTablaSuperiorEInferiorValor =
+	"/apiTablaSuperiorEInferior/api/" + window.versionApi + "/TablaSuperiorInferiorValor/";
+window.ApiParametrosBeneficio = "/apiParametrosBeneficio/api/" + window.versionApi + "/Beneficios/";
 window.ApiParametros = "/apiParametros/api/" + window.versionApi + "/ConsultarParametros/";
+window.ApiParametrosEspeciales =
+	"/apiParametrosEspeciales/api/" + window.versionApi + "/ParametrosEspeciales/";
+window.ApiProcesosBeneficio =
+	"/apiProcesosBeneficio/api/" + window.versionApi + "/ProcesosBeneficio/";
+window.ApiPersona = "/apiPersona/api/" + window.versionApi + "/Persona/";
 window.ApiBeneficiarios = "/apiBeneficiarios/api/" + window.versionApi + "/Beneficiarios/";
 window.apiCuentaBancariaAfiliado =
 	"/apiCuentaBancariaAfiliado/api/" + window.versionApi + "/CuentaBancaria/";
+window.ApiSaldos = "/apiSaldos/api/" + window.versionApi + "/Saldos/";
 window.ApiReclamosNormativos =
 	"/apiReclamosNormativos/api/" + window.versionApi + "/ReclamosNormativos/";
 window.ApiSolicitudCesantia =
 	"/apiSolicitudCesantia/api/" + window.versionApi + "/SolicitudCesantia/";
 window.ApiSolicitudPensionado =
 	"/apiSolicitudPensionado/api/" + window.versionApi + "/SolicitudPensionado/";
+window.ApiSolicitudTraspaso =
+	"/apiSolicitudTraspaso/api/" + window.versionApi + "/SolicitudTraspaso/";
+window.ApiBNE = "/apiBne/api/" + window.versionApi + "/Bne/";
+window.ApiPoderes = "/apiPoderes/api/" + window.versionApi + "/Poderes/";
 
 window.SONDA_CORE_API_ROOT = "https://sondacoreapi-noti-dev.azurewebsites.net/";
 window.SONDA_CORE_NOTIFICATIONS_SERVICES_VERSION = "v1";

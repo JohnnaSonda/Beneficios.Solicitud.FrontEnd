@@ -207,7 +207,7 @@ const Home: React.FC<IProps> = (props: any): React.ReactElement => {
 					setTabDisabled={setTabDisabled}
 				/>
 			),
-			disabled: tabDisabled[1].disabled,
+			//disabled: tabDisabled[1].disabled,
 		},
 		{
 			title: "Actualizar Datos",
@@ -621,7 +621,7 @@ const Home: React.FC<IProps> = (props: any): React.ReactElement => {
 					<AppProvider globalEventDistributor={props.globalEventDistributor} idModule="">
 						<LocaleProvider i18nextInstance={i18nextInstance} namespace="namespace.test-simulacion">
 							<PageContent>
-								<TitleSection title="Solicitud beneficio fallecido" />
+								<TitleSection title="Solicitud beneficiario fallecido" />
 								<Card>
 									<SpinLoader size="normal" spinning={loading}>
 										{tabActive === "0" && (

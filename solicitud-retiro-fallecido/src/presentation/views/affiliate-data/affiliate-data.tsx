@@ -6,7 +6,6 @@ import {
 	RutField,
 	TextField,
 	DatePickerField,
-	//ComboBoxField,
 	Divider,
 	DataTableColumnProps,
 	DataTable,
@@ -17,35 +16,28 @@ import {
 	ButtonProps,
 	CheckboxField,
 	UploadField,
-	GroupRadioButtonField,
-	ComboBoxField,
 } from "sonda.core.controls";
 import { IDataConsulting, ITabAfiliado } from "../../types/affiliate-data";
 import moment from "moment-timezone";
 import { ConsultarSolicitudPensionado } from "../../../application/services/consultar-solicitud-pensionado";
 //import { NotificationInputError } from "../../components/index";
-import { convertToMoneyFormat } from "../../utils/index";
+//import { convertToMoneyFormat, rutFormatter } from "../../utils/index";
 import { InputsControls } from "sonda.core.controls/lib/components/layout/Sections/availableInputs";
+import { convertToMoneyFormat } from "../../../presentation/utils";
+//import { BeneficiaryHandler } from "../../components/update-data-beneficiary-handler/BeneficiaryHandler";
 
 const AffiliateData = ({
 	rut,
 	nombres,
 	primerApellido,
 	segundoApellido,
-	//entidadPrevisional,
 	fechaNacimiento,
-	//tipoPension,
 	fechaPension,
-	//previsionOpciones,
-	//opcionesPension,
-	//nuevaPrevision,
-	//updateConsolidadaData,
 	setTabDisabled,
-	//consolidada,
-	//setConsolidada,
 	nextTab,
 }: ITabAfiliado) => {
 	const [tableReject, setTableReject] = useState<boolean>(false);
+	//const [paymentReceiver] = useState<"mandatory" | "affiliate">("affiliate");
 	const [loading, setLoading] = useState<boolean>(false);
 	const [verifyData, setVerifyData] = useState({
 		datePension: false,
@@ -251,8 +243,74 @@ const AffiliateData = ({
 		},
 	];
 
-	const handleChangeTable = (_i: number) => {
-	};
+	const columnsBeneficiary: DataTableColumnProps[] = [
+		{
+			align: "center",
+			dataIndex: "beneficiaryType",
+			dataType: "string",
+			title: "Tipo de beneficiario",
+		},
+		{
+			align: "center",
+			dataIndex: "rut",
+			dataType: "string",
+			title: "Rut",
+		},
+		{
+			align: "center",
+			dataIndex: "names",
+			dataType: "string",
+			title: "Nombres",
+		},
+		{
+			align: "center",
+			dataIndex: "lastName",
+			dataType: "string",
+			title: "Apellido Paterno",
+		},
+		{
+			align: "center",
+			dataIndex: "motherLastName",
+			dataType: "string",
+			title: "Apellido Materno",
+		},
+		{
+			align: "center",
+			customFormat: "DD/MM/YYYY",
+			dataIndex: "birthDate",
+			dataType: "date",
+			title: "Fecha de nacimiento",
+		},
+		{
+			align: "center",
+			dataIndex: "percentage",
+			dataType: "number",
+			title: "Porcentaje",
+		},
+		{
+			align: "center",
+			dataIndex: "collection",
+			dataType: "string",
+			title: "Cobro",
+		},
+	];
+
+	const dataBeneficiary: any[] = [
+		{
+			rut: "201665272",
+			beneficiaryType: "Declarado en vida",
+			names: "Steven",
+			lastName: "Faust",
+			motherLastName: "Jonhson",
+			birthDate: new Date(),
+			percentage: 100,
+			collection: "No",
+		},
+	];
+
+	const handleChangeTable = (_i: number) => {};
+
+	//const rutAffiliate = rutFormatter(rut);
 
 	useEffect(() => {
 		handleRejectedApplications();
@@ -329,51 +387,48 @@ const AffiliateData = ({
 			)}
 			<div>
 				<H2>Validar fecha de defunción</H2>
-					<HeaderControls inputs={inputsDateDeath} buttonControls={buttonDateDeath} />
+				<HeaderControls inputs={inputsDateDeath} buttonControls={buttonDateDeath} />
 			</div>
 			<Divider />
 			<H2>Documentación recibida</H2>
 			<div className="affiliate-data__documentation-received">
 				<Row gutter={[16, 24]}>
-							<Col span={6}>
-								<CheckboxField label="Acuerdo unión civil" onChange={function noRefCheck() {}} />
-								<CheckboxField
-									label="Certificado nacimiento trabajador"
-									onChange={function noRefCheck() {}}
-								/>
-							</Col>
-							<Col span={6}>
-								<CheckboxField label="Posesión efectiva" onChange={function noRefCheck() {}} />
-								<CheckboxField
-									label="Certificado de matrimonio"
-									onChange={function noRefCheck() {}}
-								/>
-							</Col>
-							<Col span={6}>
-								<CheckboxField
-									label="Certificado nacimiento hijo"
-									onChange={function noRefCheck() {}}
-								/>
-								<CheckboxField label="Escritura publica" onChange={function noRefCheck() {}} />
-							</Col>
-							<Col span={6}>
-								<CheckboxField label="Posesión efectiva" onChange={function noRefCheck() {}} />
-								<CheckboxField label="Tutoría legal" onChange={function noRefCheck() {}} />
-							</Col>
-							<Col>
-								<UploadField
-									label="Seleccione documento"
-									buttonLabel="Subir archivo"
-									id="upload-input"
-									maxCount={1}
-									name="upload-input-1"
-									position="bottom"
-								/>
-							</Col>
-						</Row>
-						<Button buttonType="Actualizar" id="Actualizar" label="Actualizar" />
+					<Col span={6}>
+						<CheckboxField label="Acuerdo unión civil" onChange={function noRefCheck() {}} />
+						<CheckboxField
+							label="Certificado nacimiento trabajador"
+							onChange={function noRefCheck() {}}
+						/>
+					</Col>
+					<Col span={6}>
+						<CheckboxField label="Posesión efectiva" onChange={function noRefCheck() {}} />
+						<CheckboxField label="Certificado de matrimonio" onChange={function noRefCheck() {}} />
+					</Col>
+					<Col span={6}>
+						<CheckboxField
+							label="Certificado nacimiento hijo"
+							onChange={function noRefCheck() {}}
+						/>
+						<CheckboxField label="Escritura publica" onChange={function noRefCheck() {}} />
+					</Col>
+					<Col span={6}>
+						<CheckboxField label="Posesión efectiva" onChange={function noRefCheck() {}} />
+						<CheckboxField label="Tutoría legal" onChange={function noRefCheck() {}} />
+					</Col>
+					<Col>
+						<UploadField
+							label="Seleccione documento"
+							buttonLabel="Subir archivo"
+							id="upload-input"
+							maxCount={1}
+							name="upload-input-1"
+							position="bottom"
+						/>
+					</Col>
+				</Row>
+				<Button buttonType="Actualizar" id="Actualizar" label="Actualizar" />
 			</div>
-			<Divider />
+			{/* <Divider />
 			<div className="affiliate-data__applicant">
 			<H2>Solicitante</H2>
 					<div className="affiliate-data__checkbox">
@@ -569,22 +624,42 @@ const AffiliateData = ({
 						</Row>
 					</div>
 					<Button buttonType="Actualizar" id="Actualizar" label="Actualizar" />
-			</div>
+			</div> */}
+
+			<Divider />
+			<DataTable
+				checkedField="rut"
+				columns={columnsBeneficiary}
+				dataSource={dataBeneficiary}
+				onChangeRowSelection={function noRefCheck(i) {
+					handleChangeTable(+i);
+				}}
+				rowSelection="radio"
+				title="Beneficiario solicitante"
+				pagination={false}
+			/>
+			{/* <Col span={24}>
+					<BeneficiaryHandler
+						rutAffiliate={rutAffiliate}
+						updateConsolidadaData={updateConsolidadaData}
+						paymentReceiver={""}
+					/>
+				</Col> */}
 			<Divider />
 			<div className="affiliate-data__mandatory">
-			<H2>Mandato</H2>
-					<DataTable
-						checkedField="rut"
-						columns={columnsMandate}
-						dataSource={dataMandate}
-						onChangeRowSelection={function noRefCheck(i) {
-							handleChangeTable(+i);
-						}}
-						rowSelection="radio"
-						title="Antecedentes Mandatario"
-						pagination={false}
-					/>
-					<Button buttonType="Despachar" id="mandatory" label="Ir a mandatos" />
+				<H2>Mandato</H2>
+				<DataTable
+					checkedField="rut"
+					columns={columnsMandate}
+					dataSource={dataMandate}
+					onChangeRowSelection={function noRefCheck(i) {
+						handleChangeTable(+i);
+					}}
+					rowSelection="radio"
+					title="Antecedentes Mandatario"
+					pagination={false}
+				/>
+				<Button buttonType="Despachar" id="mandatory" label="Ir a mandatos" />
 			</div>
 		</SpinLoader>
 	);

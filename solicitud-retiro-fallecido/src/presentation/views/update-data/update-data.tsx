@@ -17,7 +17,7 @@ import {
 	CheckboxField,
 } from "sonda.core.controls";
 import GetUser from "../../hooks/getUsers";
-import { BeneficiaryHandler } from "../../components/update-data-beneficiary-handler/BeneficiaryHandler";
+//import { BeneficiaryHandler } from "../../components/update-data-beneficiary-handler/BeneficiaryHandler";
 import { CrearCuentaBancaria } from "../../../application/services/crear-cuenta";
 import { ModificarCuentaBancaria } from "../../../application/services/modificar-cuenta-bancaria";
 import { EliminarCuentaBancaria } from "../../../application/services/eliminar-cuenta";
@@ -52,6 +52,8 @@ import { rutFormatter } from "../../utils/index";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { BeneficiaryHandler } from "../../../presentation/components/update-data-beneficiary-handler/BeneficiaryHandler";
+//import { BeneficiaryHandler } from "../../../presentation/components/update-data-beneficiary-handler/BeneficiaryHandler";
 
 let schemaCuentaBancaria = yup.object().shape({
 	entidadBancaria: yup.string().required("Debe seleccionar una entidad bancaria."),
@@ -1143,8 +1145,16 @@ const UpdateDataView = ({
 				)}
 			</Modal>
 			<Row gutter={[16, 16]}>
-				<Col span={24}>
+				<Col span={12}>
 					<H3>Datos del Pago</H3>
+				</Col>
+				<Col span={12} className="mt-4 flex justify-end">
+					<Button
+						id=""
+						buttonType="Siguiente"
+						label="Siguiente"
+						onClick={() => nextTab("3", "summary")}
+					/>
 				</Col>
 				<Col span={6}>
 					<ComboBoxField
@@ -1155,7 +1165,7 @@ const UpdateDataView = ({
 							data: [
 								{
 									id: "affiliate",
-									name: "Afiliado Pensionado",
+									name: "Afiliado",
 								},
 							],
 							textField: "name",
@@ -1284,20 +1294,14 @@ const UpdateDataView = ({
 					<BeneficiaryHandler
 						rutAffiliate={rutAffiliate}
 						updateConsolidadaData={updateConsolidadaData}
+						paymentReceiver={""}
 					/>
 				</Col>
 			</Row>
 
-			<Row gutter={[16, 16]}>
-				<Col span={24} className="mt-4 flex justify-end">
-					<Button
-						id=""
-						buttonType="Siguiente"
-						label="Siguiente"
-						onClick={() => nextTab("3", "summary")}
-					/>
-				</Col>
-			</Row>
+			{/* <Row gutter={[16, 16]}>
+				
+			</Row> */}
 		</>
 	);
 };

@@ -21,9 +21,10 @@ interface Props {
 		rutDv: string;
 	};
 	updateConsolidadaData: (key: string, value: string) => void;
+	paymentReceiver: string;
 }
 
-const BeneficiaryHandler = ({ rutAffiliate, updateConsolidadaData }: Props) => {
+const BeneficiaryHandler = ({ rutAffiliate, updateConsolidadaData, paymentReceiver }: Props) => {
 	const [selectedBeneficiary, setSelectedBeneficiary] = useState<IBeneficiarioCreateApi>();
 	const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 	const [isDeleteModalVisible, setIsDeleteModalVisible] = useState<boolean>(false);
@@ -285,6 +286,7 @@ const BeneficiaryHandler = ({ rutAffiliate, updateConsolidadaData }: Props) => {
 			<div className="flex justify-end mt-3">
 				<Button
 					id=""
+					disabled={paymentReceiver === "mandatory"}
 					label="Guardar"
 					buttonType="Guardar"
 					variant="primary"
@@ -293,6 +295,7 @@ const BeneficiaryHandler = ({ rutAffiliate, updateConsolidadaData }: Props) => {
 				/>
 				<Button
 					id=""
+					disabled={paymentReceiver === "mandatory"}
 					label="Agregar"
 					buttonType="Agregar"
 					variant="secondary"

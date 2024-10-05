@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import { Paragraph } from "sonda.core.controls/typography";
+import { H3, Paragraph } from "sonda.core.controls/typography";
 import {
 	Col,
-	Divider,
-	Icon,
 	Row,
 	SummaryTable,
 	SummaryTableColumnProps,
 	DataTable,
 	DataTableColumnProps,
 	Button,
+	Icon,
 } from "sonda.core.controls";
 import GetUser from "../../hooks/getUsers";
 import { TableTotal } from "../../components";
@@ -168,9 +167,20 @@ const BenefitsView = ({
 	return (
 		<>
 			<Row gutter={[16, 16]}>
+				<Col span={12}>
+					<H3>Saldos Afiliado</H3>
+				</Col>
+				<Col span={12} className="mt-4 flex justify-end">
+					<Button
+						id=""
+						buttonType="Siguiente"
+						label="Siguiente"
+						onClick={() => nextTab("2", "updateData")}
+					/>
+				</Col>
 				<Col span={24} className="min-h-full">
 					<DataTable
-						title="Saldos Afiliado"
+						title=""
 						columns={columnsAffiliateBalance}
 						dataSource={saldos}
 						pagination={false}
@@ -197,8 +207,6 @@ const BenefitsView = ({
 				</Col>
 			</Row>
 
-			<Divider />
-
 			<div>
 				<Row gutter={[16, 16]}>
 					<Col span={24}>
@@ -213,7 +221,7 @@ const BenefitsView = ({
 				</Row>
 			</div>
 
-			<Row gutter={[16, 16]}>
+			{/* <Row gutter={[16, 16]}>
 				<Col span={24} className="mt-4 flex justify-end">
 					<Button
 						id=""
@@ -222,7 +230,7 @@ const BenefitsView = ({
 						onClick={() => nextTab("2", "updateData")}
 					/>
 				</Col>
-			</Row>
+			</Row> */}
 		</>
 	);
 };
